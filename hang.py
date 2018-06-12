@@ -1,4 +1,5 @@
 import random
+import time
 from os import system, name
 
 
@@ -38,14 +39,17 @@ def game():
             print("strikes: " + str(len(b_guess)) + "/7")
             guess = input("Guess a letter: ").lower()
 
-            if len(guess) !=1:
+            if len(guess) != 1:
                 print("you can only enter 1 letter")
+                time.sleep(3)
                 continue
             elif guess in b_guess or guess in g_guess:
                 print("You've already guessed that letter")
+                time.sleep(3)
                 continue
             elif not guess.isalpha():
                 print("You can only guess letters")
+                time.sleep(3)
                 continue
 
             # Compare good guesses with word
@@ -53,7 +57,8 @@ def game():
                 [g_guess.append(guess) for i in secret if i == guess]
 
                 if len(g_guess) == len(list(secret)):
-                    print("you win {}".format(secret))
+                    print("{}\n"
+                          "You win.".format(secret))
                     play = False
                     break
             else:
@@ -73,6 +78,8 @@ def main():
         else:
             play = False
             print("Goodbye.")
+            time.sleep(3)
+            print("")
 
 
 if __name__ == "__main__":
