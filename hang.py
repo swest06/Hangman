@@ -79,7 +79,6 @@ def main():
             play = False
             print("Goodbye.")
             time.sleep(3)
-            print("")
 
 
 if __name__ == "__main__":
